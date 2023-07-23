@@ -2,7 +2,7 @@ from setuptools import setup, find_namespace_packages
 
 setup(
     name='Clean_folder',
-    version='0.0.2',
+    version='0.0.3',
     description='Sorting of folder',
     url='https://github.com/TetianaShevch/GoIT_Home_task_7.git',
     author='Tetiana Shevchenko',
