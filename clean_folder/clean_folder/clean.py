@@ -61,7 +61,6 @@ DYRECTORY_NAME = {
 }
 EXTENSION = set()
 
-folder_to_scan = sys.argv[1]
 
 def read_folder(path: Path, folder_to_scan: Path) -> None:
     """
@@ -183,7 +182,7 @@ def clean_folder():
         """
         Функція виконує сортування папки, заданої при виклику 'python clean.py <Name of folder>'
         """                    
-           
+folder_to_scan = sys.argv[1]           
         
 read_folder(Path(folder_to_scan), Path(folder_to_scan)) # Обробляємо папку
 
