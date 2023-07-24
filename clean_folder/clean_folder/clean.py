@@ -3,6 +3,65 @@ from pathlib import Path
 import shutil
 import re
 
+images = []
+documents = []
+audio = []
+video = []
+archives = []
+unknown = []
+my_others = []
+REGISTER_EXTENSION = {
+    'JPEG': images,
+    'JPG': images,
+    'PNG': images,
+    'SVG': images,
+    'AVI': video, 
+    'MP4': video, 
+    'MOV': video, 
+    'MKV': video,
+    'DOC': documents, 
+    'DOCX': documents,
+    'TXT': documents, 
+    'PDF': documents, 
+    'XLSX': documents, 
+    'PPTX': documents,
+    'MP3': audio,
+    'OGG': audio, 
+    'WAV': audio, 
+    'AMR': audio,
+    'M4A': audio,
+    'ZIP': archives,
+    'GZ': archives, 
+    'TAR': archives
+}
+
+DYRECTORY_NAME = {
+    'JPEG': "Images",
+    'JPG': "Images",
+    'PNG': "Images",
+    'SVG': "Images",
+    'AVI': "Video", 
+    'MP4': "Video", 
+    'MOV': "Video", 
+    'MKV': "Video",
+    'DOC': "Documents", 
+    'DOCX': "Documents",
+    'TXT': "Documents", 
+    'PDF': "Documents", 
+    'XLSX': "Documents", 
+    'PPTX': "Documents",
+    'MP3': "Audio",
+    'OGG': "Audio", 
+    'WAV': "Audio", 
+    'AMR': "Audio",
+    'M4A': "Audio",
+    'ZIP': "Archives",
+    'GZ': "Archives", 
+    'TAR': "Archives"
+}
+EXTENSION = set()
+
+folder_to_scan = sys.argv[1]
 
 def read_folder(path: Path, folder_to_scan: Path) -> None:
     """
@@ -124,66 +183,7 @@ def clean_folder():
         """
         Функція виконує сортування папки, заданої при виклику 'python clean.py <Name of folder>'
         """                    
-            
-images = []
-documents = []
-audio = []
-video = []
-archives = []
-unknown = []
-my_others = []
-REGISTER_EXTENSION = {
-    'JPEG': images,
-    'JPG': images,
-    'PNG': images,
-    'SVG': images,
-    'AVI': video, 
-    'MP4': video, 
-    'MOV': video, 
-    'MKV': video,
-    'DOC': documents, 
-    'DOCX': documents,
-    'TXT': documents, 
-    'PDF': documents, 
-    'XLSX': documents, 
-    'PPTX': documents,
-    'MP3': audio,
-    'OGG': audio, 
-    'WAV': audio, 
-    'AMR': audio,
-    'M4A': audio,
-    'ZIP': archives,
-    'GZ': archives, 
-    'TAR': archives
-}
-
-DYRECTORY_NAME = {
-    'JPEG': "Images",
-    'JPG': "Images",
-    'PNG': "Images",
-    'SVG': "Images",
-    'AVI': "Video", 
-    'MP4': "Video", 
-    'MOV': "Video", 
-    'MKV': "Video",
-    'DOC': "Documents", 
-    'DOCX': "Documents",
-    'TXT': "Documents", 
-    'PDF': "Documents", 
-    'XLSX': "Documents", 
-    'PPTX': "Documents",
-    'MP3': "Audio",
-    'OGG': "Audio", 
-    'WAV': "Audio", 
-    'AMR': "Audio",
-    'M4A': "Audio",
-    'ZIP': "Archives",
-    'GZ': "Archives", 
-    'TAR': "Archives"
-}
-EXTENSION = set()
-
-folder_to_scan = sys.argv[1]
+           
         
 read_folder(Path(folder_to_scan), Path(folder_to_scan)) # Обробляємо папку
 
